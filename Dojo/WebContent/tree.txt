@@ -1,0 +1,30 @@
+{ label: 'name',
+identifier: 'name',
+items: [
+{ name:'Names', type:'cat',
+children: [
+{ name:'Vinod', type:'st' },
+{ name:'Suman', type:'st' },
+{ name:'Deepak', type:'st' }
+]
+
+},
+{ name:'Fruits', type: 'cat',
+children: [
+{ name:'Apple', type:'fr' },
+{ name:'Mango', type:'fr' },
+{ name:'Taste', type:'fr',
+children: [
+{ name:'Sweets', type:'gr' },
+{ name:'Sour', type:'gr' },
+{ name:'Salt', type:'gr' }
+]
+
+}
+]
+
+},
+{ name:'Vegetables', type: 'cat'},
+{ name:'Education', type:'cat'}
+]
+}

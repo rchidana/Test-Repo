@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr">
+    
+    <head>
+        <style type="text/css">
+            body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js" djConfig="parseOnLoad: true">
+        </script>
+        <script type="text/javascript">
+            dojo.require("dojo.data.ItemFileReadStore");
+            dojo.require("dijit.Tree");
+            dojo.require("dojo.parser");
+        </script>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css"/>
+    </head>
+    
+    <body class=" claro ">
+ 		<div dojoType="dojo.data.ItemFileReadStore" url="tree.txt" jsid="popStore" />
+  		<div dojoType="dijit.Tree" store="popStore" labelAttr="sname" label="Tree"></div>
+    </body>
+
+</html>

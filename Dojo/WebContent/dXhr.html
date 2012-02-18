@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="ltr">
+    
+    <head>
+        <style type="text/css">
+            body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js" djConfig="parseOnLoad: true">
+        </script>
+        <script type="text/javascript">
+            dojo.require("dijit.form.Button");
+            dojo.require("dijit.form.TextBox");
+            dojo.addOnLoad(function() {
+                // Create a button programmatically:
+                var button = new dijit.form.Button({
+                    label: "Get Json!",
+                    onClick: getjson
+                },
+                "progButtonNode");
+            
+                var button1 = new dijit.form.Button({
+                    label: "Click me Too!",
+                    onClick: function() {
+                        // Do something:
+                        dojo.byId("result1").innerHTML += "Thank you! ";
+                    }
+                },
+                "result2");
+                dojo.connect(dijit.byId("tbox"), "onKeyDown", function(event){
+                    getjson();
+                });
+
+            });
+            
+            function getjson() {
+            	dojo.xhrGet( { // 
+                    // The following URL must match that used to test the server.
+                    url: "GetJson", 
+                    handleAs: "text",
+                    timeout: 5000, // Time in milliseconds
+                    // The LOAD function will be called on a successful response.
+                    load: function(response, ioArgs) { //
+                     //alert("Got from server : "+response);
+                    console.log("Response -> "+response);
+                    },
+
+                    // The ERROR function will be called in an error case.
+                    error: function(response, ioArgs) { // 
+                      console.error("HTTP status code: ", ioArgs.xhr.status); //
+                      }
+               });
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css"/>
+    </head>
+    
+    <body class=" claro ">
+  
+ 	  <button id="progButtonNode" type="button">
+      </button>
+      
+      <div id="result2"></div>
+      <div id="result1"></div>
+      <input id="tbox" dojoType="dijit.form.TextBox"><br>
+    </body>
+
+</html>

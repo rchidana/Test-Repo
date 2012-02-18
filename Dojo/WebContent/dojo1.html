@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Hello Dojo!</title>
+    <!-- load Dojo -->
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"></script>
+    <script>
+    
+    
+    	dojo.require("dojo.fx");
+    	dojo.require("dojo.date");
+        dojo.ready(function(){
+        	 dojo.byId("greeting").innerHTML += ", from " + dojo.version;
+        	 
+        	    // Now, slide the greeting
+        	    dojo.fx.slideTo({
+        	        top: 100,
+        	        left: 200,
+        	        node: dojo.byId("greeting")
+        	    }).play();
+        	    dojo.byId("timenow").innerHTML +="<p>Time now = "+ new Date();
+        });
+    </script>
+</head>
+<body>
+    <h1 id="greeting">Hello</h1>
+    <h2 id="timenow"></h2>
+</body>
+</html>
